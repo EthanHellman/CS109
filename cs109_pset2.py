@@ -32,6 +32,8 @@ def part_a(filename="bats.csv"):
     to use numpy to make your life easier in this 
     function.
     """
+    data = np.genfromtxt(filename, delimiter=',')
+    return np.mean(data, axis = 0)
     pass
 
 
