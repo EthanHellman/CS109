@@ -110,9 +110,9 @@ If you choose to submit an article for extra credit, it
   - you should not modify the return value
 """
 def article_ec():
-    sunetid = "" # your sunet id here.
-    title = "" # your article title here
-    url = "" # a link to your article here
+    sunetid = "06343801" # your sunet id here.
+    title = "Coronavirus Pandemic (COVID-19)" # your article title here
+    url = "https://ourworldindata.org/coronavirus" # a link to your article here
     return sunetid, title, url
 
 
