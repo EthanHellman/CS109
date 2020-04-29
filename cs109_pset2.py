@@ -33,7 +33,8 @@ def part_a(filename="bats.csv"):
     function.
     """
     data = np.genfromtxt(filename, delimiter=',')
-    return np.mean(data, axis = 0)
+    probs = np.mean(data, axis = 0)
+    return probs
     pass
 
 
@@ -48,6 +49,13 @@ def part_b(filename="bats.csv"):
     the assignment handout for some information on 
     numpy functionality that'll help you here.
     """
+    data = np.genfromtxt(filename, delimiter=',')
+    probs = np.zeros(5)
+    for i in range(0, 5):
+      temp = data[data[:,i] == 1]
+      temp = temp[temp[:,5] == 1]
+      probs[i] = np.shape(temp)[0]/np.shape(data)[0]
+    return probs
     pass
 
 
