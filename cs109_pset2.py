@@ -50,11 +50,12 @@ def part_b(filename="bats.csv"):
     numpy functionality that'll help you here.
     """
     data = np.genfromtxt(filename, delimiter=',')
+    G_probs = part_a(filename)
     probs = np.zeros(5)
     for i in range(0, 5):
       temp = data[data[:,i] == 1]
       temp = temp[temp[:,5] == 1]
-      probs[i] = np.shape(temp)[0]/np.shape(data)[0]
+      probs[i] = np.shape(temp)[0]/np.shape(data)[0]/G_probs[i]
     return probs
     pass
 
