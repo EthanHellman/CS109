@@ -1,5 +1,5 @@
-# Name:
-# Stanford email:
+# Name: Ethan Hellman
+# Stanford email: hellman1@stanford.edu
 
 ########### CS109 Problem Set 3, Question 1 ##############
 """
@@ -27,17 +27,29 @@ def simulate_bernoulli(p=0.4):
 
 # part (b)
 def simulate_binomial(n=20, p=0.4):
-    pass  # TODO: delete this line and implement this function!
+  successes = 0
+  for i in range(n):
+    successes += simulate_bernoulli(p)
+
+  return successes
 
 
 # part (c)
 def simulate_geometric(p=0.03):
-    pass  # TODO: delete this line and implement this function!
+  trials = 0
+  while(simulate_bernoulli(p) == 0):
+    trials += 1
+
+  return trials
 
 
 # part (d)
 def simulate_neg_binomial(r=5, p=0.03):
-    pass  # TODO: delete this line and implement this function!
+  trials = 0
+  for i in range(r):
+    trials += simulate_geometric(p)
+
+  return trials
 
 
 # Note for parts (e) and (f):
@@ -48,12 +60,23 @@ def simulate_neg_binomial(r=5, p=0.03):
 
 # part (e)
 def simulate_poisson(lamb=3.1):
-    pass  # TODO: delete this line and implement this function!
+  new_lambda = lamb/60000
+  events = 0
+  for i in range(60000):
+    events += simulate_bernoulli(new_lambda)
+
+  return events
+
 
 
 # part (f)
 def simulate_exponential(lamb=3.1):
-    pass  # TODO: delete this line and implement this function!
+  new_lambda = lamb/60000
+  time = 0
+  while(simulate_bernoulli(new_lambda) == 0):
+      time += 1
+
+  return time/60000
 
 def main():
     """
@@ -62,6 +85,11 @@ def main():
     We won't grade anything in this function.
     """
     print("Bernoulli:", simulate_bernoulli())
+    print("Bernoulli:", simulate_binomial())
+    print("Bernoulli:", simulate_geometric())
+    print("Bernoulli:", simulate_neg_binomial())
+    print("Bernoulli:", simulate_poisson())
+    print("Bernoulli:", simulate_exponential())
 
 ########### CS109 Problem Set 3, Question 13 ##############
 """
