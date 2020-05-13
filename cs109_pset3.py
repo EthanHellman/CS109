@@ -40,7 +40,7 @@ def simulate_geometric(p=0.03):
   while(simulate_bernoulli(p) == 0):
     trials += 1
 
-  return trials
+  return trials+1
 
 
 # part (d)
