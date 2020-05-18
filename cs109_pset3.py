@@ -90,6 +90,8 @@ def main():
     print("Bernoulli:", simulate_neg_binomial())
     print("Bernoulli:", simulate_poisson())
     print("Bernoulli:", simulate_exponential())
+    __, title, __ = article_ec()
+    print(title)
 
 ########### CS109 Problem Set 3, Question 13 ##############
 """
