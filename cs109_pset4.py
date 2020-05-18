@@ -39,27 +39,27 @@ def inferProbFlu(ntrials = 1000000) -> float:
   for i in range(ntrials):
 
     if np.random.rand() < probExposure():
-        exposure = 1
+      exposure = 1
     else:
       exposure = 0
 
     if np.random.rand() < probStress():
-        stess = 1
+      stress = 1
     else:
       stress = 0
     
     if np.random.rand() < probCold(stress, exposure):
-        cold = 1
+      cold = 1
     else:
       cold = 0
 
     if np.random.rand() < probFlu(stress, exposure):
-        flu = 1
+      flu = 1
     else:
       flu = 0
     
     if np.random.rand() < probSymptom(2, flu, cold):
-        X_2 = 1
+      X_2 = 1
     else:
       X_2 = 0
       
