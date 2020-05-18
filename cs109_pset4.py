@@ -29,7 +29,7 @@ You can call the functions directly from this file:
 
 def inferProbFlu(ntrials = 1000000) -> float:
 
-  samples = np.zeros((ntrials, 5))
+  samples = np.zeros((ntrials, 3))
   exposure = 0
   stress = 0
   cold = 0
@@ -63,17 +63,15 @@ def inferProbFlu(ntrials = 1000000) -> float:
     else:
       X_2 = 0
       
-    samples[i, 0] = exposure
-    samples[i, 1] = stress
-    samples[i, 2] = cold
-    samples[i, 3] = flu
-    samples[i, 4] = X_2
+    samples[i, 0] = flu
+    samples[i, 1] = exposure
+    samples[i, 2] = X_2
   
-  occurences = samples[samples[:,0] == 1]
-  occurences = occurences[occurences[:, 3] == 1]
-  occurences = occurences[occurences[:, 4] == 1]
+  occurences = samples[samples[:,1] == 1]
+  occurences = occurences[occurences[:, 2] == 1]
+  flu_occurences = occurences[occurences[:,0] == 1]
 
-  return occurences.shape[0]/ntrials
+  return flu_occurences.shape[0]/occurences.shape[0]
 
 
 
@@ -127,9 +125,9 @@ If you choose to submit an article for extra credit, it
   - you should not modify the return value
 """
 def article_ec():
-    sunetid = "" # your sunet id here.
-    title = "" # your article title here
-    url = "" # a link to your article here
+    sunetid = "06343801" # your sunet id here.
+    title = "COVID-19 Brings Calculus, Stats, Probability Theory into Our Daily Lives" # your article title here
+    url = "https://businessjournaldaily.com/covid-19-brings-calculus-stats-probability-theory-into-our-daily-lives/" # a link to your article here
     return sunetid, title, url
 
 
