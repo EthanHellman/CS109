@@ -45,7 +45,14 @@ def part_a(filename):
     assignment handout. You should compute and
     return E[X] (which is of type float).
     """
-    pass  # TODO: delete this line and implement the function!
+
+
+    filePath = get_filepath(filename)
+    data = np.genfromtxt(filePath, delimiter='\n')
+
+    print(np.size(data))
+
+    return data
 
 
 def part_b(filename):
